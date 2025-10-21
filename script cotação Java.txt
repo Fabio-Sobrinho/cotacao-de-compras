@@ -1,0 +1,41 @@
+2. Regras de Acesso e Funcionalidades
+Cotação sem vínculo de cliente: Cada cotação deve estar vinculada a um usuário (que representa o cliente ou funcionário que fez a cotação).
+Data e hora automática: Usamos
+DEFAULT CURRENT_TIMESTAMP
+na coluna
+data_hora
+.
+Acesso ao relatório de cotação: Apenas usuários com perfil 'diretoria' ou 'gerencia'.
+Acesso à lista de usuários: Apenas 'administrador' ou 'ti'.
+3. Programinha em Java (Exemplo Básico)
+Vou te passar um exemplo simples de como conectar ao banco, inserir uma cotação e consultar as cotações, considerando as regras de acesso.
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class SistemaFinanca {
+    // Configurações do banco
+    static final String URL = "jdbc:mysql://localhost:3306/seu_banco";
+    static final String USER = "seu_usuario";
+    static final String PASSWORD = "sua_senha";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            System.out.println("Bem-vindo ao Sistema Grupo Finança!");
+
+            // Login do usuário
+            System.out.print("Digite seu login: ");
+            String login = scanner.nextLine();
+            System.out.print("Digite sua senha: ");
+            String senha = scanner.nextLine();
+
+            String perfil = autenticarUsuario(conn, login, senha);
+            if (perfil == null) {
+                System.out.println("Credenciais inválidas!");
+                return;
+            }
+
+            System.out.println("Login bem-sucedido! Perfil: " + perfil);
+
+            if (perfil

@@ -1,0 +1,20 @@
+Estudo de Caso
+
+Empresa de consignado
+Nome: Grupo Finança
+
+Necessidade do cliente:
+Precisa ter controle de ordem compras para todo tipo de material para a empresa e o setor financeiro ter o controle maior dos gastos de tudo que é autorizado pela diretoria/gerencia.
+
+Analise de Requisitos:
+
+* Cadastros de fornecedores
+* Emissão de cotação para compras
+* Relatórios de cotações realizadas
+(Controlar todas as ordens de cotações de produtos e quanto está gastando a empresa e com que está gastando)
+
+Restrições:
+* Não pode existir nenhuma cotação sem vinculo de cliente
+* O sistema deverá gerar automaticamente data e hora na emissão da cotação
+* Somente a diretoria/gerencia pode ter acesso ao relatório de cotação
+* Somente a TI/Administradores podem ter acesso a lista de usuários
